@@ -66,4 +66,12 @@ add_subdirectory(vulkan_wrapper)
 
 if (PLATFORM_DESKTOP)
   add_subdirectory(libtess2)
+
+  set(GLFW_BUILD_DOCS OFF CACHE BOOL "")
+  set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "")
+  set(GLFW_BUILD_TESTS OFF CACHE BOOL "")
+  set(GLFW_INSTALL OFF CACHE BOOL "")
+  set(GLFW_VULKAN_STATIC OFF CACHE BOOL "")
+  set(GLFW_BUILD_WAYLAND OFF CACHE BOOL "")
+  add_subdirectory(glfw)
 endif()

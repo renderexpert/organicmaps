@@ -394,6 +394,7 @@ if (PLATFORM_DESKTOP)
     add_subdirectory(qt)
     omim_add_tool_subdirectory(skin_generator)
   endif()
+  add_subdirectory(dev_sandbox)
 endif()
 
 omim_add_test_subdirectory(qt_tstfrm)
