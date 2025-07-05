@@ -85,9 +85,14 @@ bool SupportManager::IsVulkanForbidden()
 }
 
 bool SupportManager::IsVulkanForbidden(std::string const & deviceName, Version apiVersion,
-                                       Version driverVersion, bool isCustomROM)
+                                       Version driverVersion, bool isCustomROM, int sdkVersion)
 {
-  LOG(LINFO, ("Device =", deviceName, "API =", apiVersion, "Driver =", driverVersion));
+  LOG(LINFO, ("Device =", deviceName, "API =", apiVersion, "Driver =", driverVersion, "SDK =", sdkVersion));
+
+  // Vulkan crashed on Android Emulator (API 36) at the moment.
+  if (deviceName == "SwiftShader Device (LLVM 10.0.0)" && sdkVersion == 36) {
+    return true;
+  }
 
   static char const * kBannedDevices[] = {
     /// @todo Should we ban all PowerVR Rogue devices?
