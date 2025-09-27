@@ -805,7 +805,7 @@ ref_ptr<TexturePool> TextureManager::GetTexturePool(ref_ptr<dp::GraphicsContext>
   }
 
   drape_ptr<TexturePool> pool;
-  if (desc.m_maxTextureCount > context->GetMaxTextureArrayLayers())
+  if (desc.m_maxTextureCount > dp::SupportManager::Instance().GetMaxTextureArrayLayers())
     pool = make_unique_dp<SimpleTexturePool>(desc, make_ref(m_textureAllocator));
   else
     pool = make_unique_dp<TextureArrayPool>(context, desc, make_ref(m_textureAllocator));
