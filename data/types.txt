@@ -1634,3 +1634,4 @@ amenity|recycling|container
 *shop|telecommunication
 *leisure|indoor_play
 *tourism|camp_pitch
+*organicapp|mwm_border
